@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Usuarios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../view/scripts/loggedIn.js"></script>
+    <link rel="shortcut icon" href="../img/iconoSiemens.ico">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/interface.css">
+    <link rel="stylesheet" href="../css/users.css">
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+		<section class="table__header">
+			<h1>Usuarios</h1>
+			<img src="../img/register.svg" id="openUsersRMW"> 
+		</section>
+        <section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>N°</th>
+						<th>Nombres</th>
+						<th>Apellidos</th>
+						<th>Correo electrónico</th>
+						<th>Cédula de identidad</th>
+						<th>Dirección</th>
+						<th>Celular</th>
+						<th>Rol</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody id="tbodyUsers"></tbody>
+			</table>
+		</section>
+    </main>
+    <div class="sideBar">
+    </div>
+	<!--Modal de usuarios-->
+	<section id="usersRMW" class="modal">
+		<div class="modal__container">
+			<!--Nombre de ventana modal y boton cerrar-->
+			<div class="modal__header">
+				<h2 class="modal__title">Registrar</h2>
+				<img src="../img/x.svg" id="closeUsersRMW">
+			</div>
+			<form id="formUsersR" class="form">
+				<div class="form__container">
+					<div class="form__group">
+						<input type="text" name="nombre_usua_R" placeholder=" " class="form__input">
+						<label for="nombre_usua_R" class="form__label">Nombres:</label>
+					</div>
+					<div class="form__group">
+						<input type="text" name="apellido_usua_R" placeholder=" " class="form__input">
+						<label for="apellido_usua_R" class="form__label">Apellidos:</label>
+					</div>
+					<div class="form__group">
+						<input type="password" name="contraseña_usua_R" placeholder=" " class="form__input">
+						<label for="contraseñaR" class="form__label">Contraseña:</label>
+					</div>
+					<div class="form__group">
+						<input type="password" name="contraseña2_usua_R" placeholder=" " class="form__input">
+						<label for="contraseña2_usua_R" class="form__label">Contraseña:</label>
+					</div>
+					<div class="form__group">
+						<input type="email" name="email_usua_R" placeholder=" " class="form__input">
+						<label for="email_usua_R" class="form__label">Correo electrónico:</label>
+					</div>
+					<div class="form__group">
+						<input type="number" name="ci_usua_R" placeholder=" " class="form__input">
+						<label for="ci_usua_R" class="form__label">Cédula de identidad:</label>
+					</div>
+					<div class="form__group">
+						<input type="text" name="direccion_usua_R" placeholder=" " class="form__input">
+						<label for="direccion_usua_R" class="form__label">Dirección:</label>
+					</div>
+					<div class="form__group">
+						<input type="number" name="celular_usua_R" placeholder=" " class="form__input">
+						<label for="celular_usua_R" class="form__label">Celular:</label>
+					</div>
+					<div class="form__radio">
+						<input type="radio" name="rol_usua_R" id="opeR" value="Operador">
+						<label for="opeR"> Operador</label>
+						<input type="radio" name="rol_usua_R" id="admiR" value="Administrador">
+						<label for="admiR"> Administrador</label>
+					</div>
+					<input type="submit" value="Registrar" class="form__submit">
+				</div>	
+			</form>
+		</div>
+	</section>
+	<section class="modal" id="usersMMW">
+		<div class="modal__container">
+			<div class="modal__header">
+				<h2 class="modal__title">Modificar</h2>
+				<img src="../img/x.svg" id="closeUsersMMW">
+			</div>
+			<form id="formUsersM" class="form">
+				<div class="form__container">
+					<!--Para recuperar el id del usuario modificado para guardarlo-->
+					<input type="text" name="id_usuaM" >
+					<div class="form__group">
+						<input type="text" name="nombre_usuaM" placeholder=" " class="form__input">
+						<label for="nombre_usuaM" class="form__label">Nombres:</label>
+					</div>
+					<div class="form__group">
+						<input type="text" name="apellido_usuaM" placeholder=" " class="form__input">
+						<label for="apellido_usuaM" class="form__label">Apellidos:</label>
+					</div>
+					<div class="form__group">
+						<input type="password" name="contraseña_usuaM" placeholder=" " class="form__input">
+						<label for="contraseña_usuaM" class="form__label">Contraseña:</label>
+					</div>
+					<div class="form__group">
+						<input type="password" name="contraseña2_usuaM" placeholder=" " class="form__input">
+						<label for="contraseña2M" class="form__label">Contraseña:</label>
+					</div>
+					<div class="form__group">
+						<!--readonly evita evita q se pueda modificar el correo a uno q ya existe-->
+						<input type="email" name="email_usuaM" placeholder=" " class="form__input">
+						<label for="email_usuaM" class="form__label">Correo electrónico:</label>
+					</div>
+					<div class="form__group">
+						<input type="number" name="ci_usuaM" placeholder=" " class="form__input">
+						<label for="ci_usuaM" class="form__label">Cédula de identidad:</label>
+					</div>
+					<div class="form__group">
+						<input type="text" name="direccion_usuaM" placeholder=" " class="form__input">
+						<label for="direccion_usuaM" class="form__label">Dirección:</label>
+					</div>
+					<div class="form__group">
+						<input type="number" name="celular_usuaM" placeholder=" " class="form__input">
+						<label for="celular_usuaM" class="form__label">Celular:</label>
+					</div>
+					<div class="form__radio">
+						<input type="radio" name="rol_usuaM" id="opeM" value="Operador">
+						<label for="opeM"> Operador</label>
+						<input type="radio" name="rol_usuaM" id="admiM" value="Administrador">
+						<label for="admiM"> Administrador</label>
+					</div>
+					<input type="submit" value="Guardar" class="form__submit">
+				</div>	
+			</form>
+		</div>
+	</section>
+</body>
+<script src="./scripts/interface.js"></script>
+<script src="./scripts/users.js"></script>
+</html>

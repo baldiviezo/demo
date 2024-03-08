@@ -1,0 +1,160 @@
+body{
+	display: grid;
+    grid-template-rows: 6.5rem 1fr;
+}
+main{
+	padding: .5rem;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 6.5rem 1fr;
+
+	overflow: hidden;
+}
+/******************************************Tabla de historicos*****************************************************/
+/*Tabla header*/
+.table__header{
+	width: 100%;
+	height: auto;
+	/*Un poco mas blanco*/
+	/*Para ajustar al cabecera de la tabla (titulo y buscar)*/
+	display: flex;
+	flex-direction: column;
+	padding: .5rem;
+	background-color: var(--color-white);
+}
+.table__header-top{
+	display: flex;
+	justify-content: space-between;
+}
+.table__header img{
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+}
+.table__header .combo__search{
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+.combo__search select{
+	border-color: var(--color-font-title);
+	border-radius: .2rem;
+	color: var(--color-font-title);
+	cursor: pointer;
+}
+.table__header .table__search{
+	width: 15rem;
+	height: 2rem;
+	background-color: var(--color-white);
+	padding: 0 .8rem;
+	border-radius: .5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .2s;
+	border: 1px solid var(--color-font-title);
+}
+.table__header .table__search:hover {
+	box-shadow: 0 .1rem .4rem #0002;
+}
+.table__header .table__search img{
+	width: 1.2rem;
+	height: 1.2rem;
+}
+.table__header .table__search input{
+	width: 100%;
+	padding: 0 .5rem 0 .3rem;
+	background-color: transparent;
+	border: none;
+	/*Que no aparesca el borde cuando empecemos a escribir*/
+	outline: none;
+	color: var(--color-font-title);
+}
+.select__search select{
+	border-color: var(--color-font-title);
+	border-radius: .4rem;
+	width: 12.5rem;
+	color: var(--color-font-title);
+}
+.select__search select.select__fecha{
+	border-color: #225c74;
+	border-radius: .4rem;
+	width: 5rem;
+	color: #225c74;
+}
+.container__page select{
+	border-color: var(--color-font-title);
+	border-radius: .2rem;
+	width: 4rem;
+	color: var(--color-font-title);
+	cursor: pointer;
+}
+.table__header section.select__search div{
+	display: flex;
+	align-items: center;
+}
+.table__header section.select__search img{
+	width: 1.5rem;
+	height: 1.5rem;
+}
+.select__search label{
+	font-weight: bold;
+	width: 6rem;
+}
+.select__search label.label__fecha{
+	font-weight: bold;
+	width: 4rem;
+}
+.table__body{
+	height: 100%;
+	font-size: 1rem;
+	background-color: var(--color-white);
+	color: var(--color-font-title);
+	overflow: auto;
+	/*Para que el scroll sea invisible*/
+	overflow: overlay;
+}
+.table__body::-webkit-scrollbar{
+	/*Vuelve el scrrol invisible*/
+	/*No se nota el cambio del ancho*/
+	width: 0.5rem;
+	/*Alto del scroll*/
+	height: 0.5rem;
+}
+.table__body::-webkit-scrollbar-thumb{
+	/*Borde del scroll*/
+	border-radius: .5rem;
+	/*color de lscroll*/
+	background-color: #0004;
+	/*volvemos invisible el scroll*/
+	visibility: hidden;
+}
+.table__body:hover::-webkit-scrollbar-thumb{
+	/*Cuando el mause esta encima de la tabla se muestra el scroll*/
+	visibility: visible;
+}
+
+
+table{
+	width: 100%;
+}
+table, th, td{
+	border-collapse: collapse;
+	padding: .5rem;
+}
+tr{
+	border-bottom: 1px solid var(--color-background-body);
+}
+tr td img{
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+}
+thead th {
+	position: sticky;
+	top: 0;
+	left: 0;
+	font-weight: bold;
+	background-color: var(--color-white);
+}

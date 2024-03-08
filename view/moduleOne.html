@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Modulo 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../view/scripts/loggedIn.js"></script>
+    <link rel="shortcut icon" href="../img/iconoSiemens.ico">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/interface.css">
+    <link rel="stylesheet" href="../css/moduleOne.css">
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <div class="nivel">
+            <div class="nivel__top">
+                <h1>Nivel del tanque</h1>
+                <img src="../img/edit.svg">
+            </div>
+            <div class="nivel__body">
+                <div class="container__bar">
+                    <div class="bar">
+                        <div class="line__bar" id="lineBar">
+                            <div class="indicador__bar">
+                                <span id="textBar">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar__botton"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicadores">
+            <div class="title">
+                <h1>Maquina</h1>
+                <h1>Inicio</h1>
+                <h1>Duracion</h1>
+                <h1>ON/OFF</h1>
+                <h1>Estado</h1>
+            </div>
+            <div>
+                <h1>OPE</h1>
+                <h1>--:--:--</h1>
+                <h1>--:--:--</h1>
+                <h1 id="textOPE" class="indicadores__text"></h1>
+                <div><span id="ledOPE" class="indicadores__led"></span></div>
+            </div>
+            <div>
+                <h1>Bomba uno</h1>
+                <h1>--:--:--</h1>
+                <h1>--:--:--</h1>
+                <h1 id="textBomba1" class="indicadores__text"></h1>
+                <div><span id="ledBomba1" class="indicadores__led"></span></div>
+            </div>
+            <div>
+                <h1>Bomba dos</h1>
+                <h1>--:--:--</h1>
+                <h1>--:--:--</h1>
+                <h1 id="textBomba2" class="indicadores__text"></h1>
+                <div><span id="ledBomba2" class="indicadores__led"></span></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <div class="sideBar">
+    </div>
+
+    <!--Ventana modal nivel chart-->
+    <section id="chartNivelMW" class="modal">
+        <div class="container__chart">
+            <div class="chart__title">
+                <img src="../img/x.svg" id="closechartNivelMW">
+            </div>
+            <div class="chart__body">
+                <canvas id="chart" class="body__canvas"></canvas>
+            </div>
+            <div class="chart__footer">
+                <button class="footer__button" onclick="resetZoom()">1:1</button>
+                <button class="footer__button" onclick="backChart()"><img src="../img/undo.svg"></button>
+                <button class="footer__button" onclick="showChart()"><img src="../img/play.svg"></button>
+                <button class="footer__button" onclick="resetZoom()"><img src="../img/pause.svg"></button>
+                <button class="footer__button" onclick="resetZoom()"><img src="../img/search.svg"></button>
+                <!--<select name="" id="">
+                    <option value="millisecond">Milisegundos</option>
+                    <option value="second">Segundos</option>
+                    <option value="minute">Minutos</option>
+                    <option value="hour">horas</option>
+                    <option value="day">Dias</option>
+                    <option value="month">Meses</option>
+                    <option value="year">Años</option>
+                </select>-->
+            </div>
+        </div>
+    </section>
+
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--Link que nos permite usar el zoom en las graficas de javascript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js"
+    integrity="sha512-wUYbRPLV5zs6IqvWd88HIqZU/b8TBx+I8LEioQ/UC0t5EMCLApqhIAnUg7EsAzdbhhdgW07TqYDdH3QEXRcPOQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="scripts/interface.js"></script>
+<script src="scripts/footer.js"></script>
+<script src="scripts/moduleOne.js"></script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Cerrar Sesion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        let objeto = {
+            'id_usua': localStorage.getItem('id_usua'),
+            'nombre_usua': localStorage.getItem('nombre_usua'),
+            'apellido_usua': localStorage.getItem('apellido_usua')
+        }
+        objeto = JSON.stringify(objeto);
+        console.log(objeto);
+        fetch('../cerrarSesion', {
+            method: "POST",
+            body: objeto
+        }).then(response => response.json()).then(data => {
+            console.log(data)
+            if (data == 0){
+            localStorage.removeItem('id_usua');
+            localStorage.removeItem('nombre_usua');
+            localStorage.removeItem('apellido_usua');
+            localStorage.removeItem('rol_usua');
+            window.open('./loginUp.html',"_self");
+        }
+        })
+    </script>
+</body>
+</html>

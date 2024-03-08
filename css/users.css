@@ -1,0 +1,205 @@
+body{
+	display: grid;
+    grid-template-rows: 6.5rem 1fr;
+}
+main{
+	padding: .5rem;
+	height: 100%;
+	overflow: hidden;
+}
+/***********Tabla de usuario**********/
+.table__header{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding: .5rem;
+	background-color: var(--color-white);
+}
+.table__header h1{
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+}
+.table__header img{
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+}
+
+.table__body{
+	height: 100%;
+	font-size: 1rem;
+	background-color: var(--color-white);
+	color: var(--color-font-title);
+	overflow: auto;
+	/*Para que el scroll sea invisible*/
+	overflow: overlay;
+}
+.table__body::-webkit-scrollbar{
+	/*Vuelve el scrrol invisible*/
+	/*No se nota el cambio del ancho*/
+	width: 0.5rem;
+	/*Alto del scroll*/
+	height: 0.5rem;
+}
+.table__body::-webkit-scrollbar-thumb{
+	/*Borde del scroll*/
+	border-radius: .5rem;
+	/*color de lscroll*/
+	background-color: #0004;
+	/*volvemos invisible el scroll*/
+	visibility: hidden;
+}
+.table__body:hover::-webkit-scrollbar-thumb{
+	/*Cuando el mause esta encima de la tabla se muestra el scroll*/
+	visibility: visible;
+}
+table{
+	width: 100%;
+}
+table, th, td{
+	border-collapse: collapse;
+	padding: .5rem;
+}
+tr{
+	border-bottom: 1px solid var(--color-background-body);
+}
+tr td img{
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+}
+thead th {
+	position: sticky;
+	top: 0;
+	left: 0;
+	font-weight: bold;
+	background-color: var(--color-white);
+}
+
+/*--------------------VENTANA MODAL MODIFICAR Y REGISTRAR----------------------------*/
+.modal{
+	/*para que salga del flujo y se quede fijo a la pantalla (desaparece)*/
+	position: fixed;
+	/*Esto ara que ocupe el 100% de alto y de ancho (Se vuelve a mostrar en la pantalla)*/
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/*color oscuro transparente para ocultar lo del fondo*/
+	background-color: var(--color-background-modal);
+	/*Esto para su hijo*/
+	display: flex;
+	/*creando custom popertis par ocultar el modal*/
+	--opacity: 0;
+	--pointer: none;
+	/*volviendo imvisible el modal*/
+	opacity: var(--opacity);
+	/*modal esta invisible pero no deja hacer click, por eso desactivamos sus eventos de click*/
+	pointer-events: var(--pointer);
+	font-family: 'Roboto', sans-serif;
+}
+.modal__container{
+	/*como su padre tiene flexbox se puede usar el margin auto*/
+	margin: auto;
+	background-color: var(--color-white);
+	width: 90%;
+	max-width: 22rem;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
+	
+}
+/*-----------------FORMULARIO--------------------*/
+.form{
+	background-color: var(--color-white);
+	/*el margen de ariba y abajo depende de min-height de body (100vh)*/
+	/*que tenga un maximo de 400px*/
+	width: 100%;
+	text-align: center;
+	padding: 1rem .5rem;
+}
+.form__container{
+	display: grid;
+	gap: 1em;
+}
+/*header*/
+.modal__header{
+	padding: 0 .5rem;
+	height: 3rem;
+	background-color: var(--color-background-head);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.modal__header img{
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+}
+.modal__title{
+	color: var(--color-white);
+	align-items: center;
+}
+.form__group{
+	position: relative;
+	color: var(--color-opaque-grey);
+}
+.form__input{
+	width: 100%;
+	background: none;
+	color: #706c6c;
+	font-size: 1rem;
+	padding: .6em .3em;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid var(--color-opaque-grey);
+	/*Los inputs no heredan la fuente de la letra*/
+	font-family: 'Roboto', sans-serif;
+}
+.form__input:focus + .form__label, .form__input:not(:placeholder-shown) + .form__label{
+	color: var(--color-opaque-grey);
+}
+.form__input:focus + .form__label, .form__input:not(:placeholder-shown) + .form__label{
+	transform: translateY(-10px) scale(.7);
+	transform-origin: left top;
+	color: var(--color-black);
+}
+.form__label{
+	color: var(--color-opaque-grey);
+	cursor: pointer;
+	/*Como label estara encima del input, cuando el cursor este encima solo pueda seleccionar el input y no el label*/
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 5px;
+	transform: translateY(.2rem);
+	transition: transform .5s, color .3s;
+}
+.form__radio{
+	display: flex;
+	justify-content: center;
+	gap: .5rem;
+}
+.form__submit{
+	background: var(--color-opaque-grey);
+	color: var(--color-white);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1rem;
+	padding: .5em 1rem;
+	border: none;
+	margin: 0 auto;
+	cursor: pointer;
+}
+.form__submit:hover{
+	background-color: var(--color-background-submit-hover);
+}
+/*Esta clase hace visible al modal*/
+.modal__show{
+	--opacity: 1;
+	--pointer: unset;
+}
+.hide{
+	display: none;
+}

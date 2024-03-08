@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Historicos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../view/scripts/loggedIn.js"></script>
+    <link rel="shortcut icon" href="../img/iconoSiemens.ico">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/interface.css">
+	<link rel="stylesheet" href="../css/pagination.css">
+    <link rel="stylesheet" href="../css/historical.css">
+	
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+		<section class="table__header">
+			<div class="table__header-top">
+				<img src="../img/excel.svg" id="excelHistorico">
+				<div class="combo__search">
+					<div>
+						<select id="selectSearchClte" class="select">
+							<option value="todas">Buscar por</option>
+							<option value="nombre_avi">Nombre</option>
+							<option value="mensaje_avi">Mensaje</option>
+							<option value="categoria_avi">Categoria</option>
+							<option value="fecha_avi">Fecha</option>
+							<option value="hora_avi">Hora</option>	
+						</select>
+					</div>
+					<div class="table__search">
+						<input type="search" id="inputSerchClte" placeholder="Buscar...">
+						<img src="../img/search.png">
+					</div>
+				</div>
+			</div>
+			<div class="showPage" id="showPageCustomer"><h2></h2></div>
+		<div class="container__page">
+			<div class="paginacion">
+				<!--Envoltura-->
+				<div class="wrapper" id="wrapperCustomer"><ul></ul></div>
+			</div>
+			<div>
+				<select id="selectNumberClte">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="50">50 </option>
+				</select>
+			</div>
+		</div>
+		</section>
+		
+		<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>N°</th>
+						<th>Nombre</th>
+						<th>Mensaje</th>
+						<th>Categoria</th>
+						<th>Fecha</th>
+						<th>Hora</th>
+					</tr>
+				</thead>
+				<tbody id="tbodyCustomer"></tbody>
+			</table>
+		</section>
+    </main>
+    <div class="sideBar">
+    </div>
+</body>
+<script src="scripts/interface.js"></script>
+<script src="scripts/historical.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</html>

@@ -1,0 +1,39 @@
+@import url('reset.css');
+/* General Style */
+:root{
+    /*Font size*/
+	font-size: 13px;
+    /*General*/
+    --color-white: #fff;
+    --color-black: #000;
+    /*loginUp*/
+	--color-background-blue: #0e4e65;
+    --color-opaque-grey: #5757577e;
+	--color-transparent-grey: #5e709455;
+    --color-transparent-white: #fffa;
+    --color-background-form: #d4d5dabb;
+    --color-bachground-form-submit: #003650;
+    /*Interfaz-body*/
+    --color-background-body: #cdd3d7;
+    /*Interfaz-head*/
+    --color-background-head: #48494e;
+    --color-font-gray: #9b9c9d;
+    /*Interfaz-submit*/
+    --color-background-submit: #b5bec5;
+    --color-background-submit-hover: #00a1d1;
+    --color-background-bar: #64646a;
+    --color-font-title: #404d53;
+    /*sidebar & modal*/
+    --color-background-modal: #111111bd;
+    --color-transparent-grey: #5e709455;
+    
+}
+body{
+    font-family: 'Terminal Dosis', Arial, sans-serif;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100vw;
+	height: 100vh;
+    overflow: hidden;
+}
+
