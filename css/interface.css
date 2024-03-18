@@ -17,8 +17,8 @@ header{
     align-items: center;
 }
 .header__top img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 8rem;
+    height: 2.6rem;
 }
 .header__top div{
     display: flex;

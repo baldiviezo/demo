@@ -3,7 +3,7 @@ const header = document.querySelector('header');
 header.innerHTML = `
     <div class="header__top">
         <div>
-            <img src="../img/home.svg" alt="Imagen de muestra">
+            <img src="../img/logoSMS.png" alt="Imagen de muestra">
             <h1>Demo de presentacion</h1>
         </div>
         <img src="../img/menu.svg" class="header__menu">
