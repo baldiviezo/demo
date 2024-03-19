@@ -6,6 +6,16 @@ body{
 /*header*/
 header{
     display: grid;
+    grid-template-columns: 19rem 1fr;
+}
+.header__left {
+    background-image: url(../img/logoSMS.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.header__right{
+    display: grid;
     grid-template-rows: 3rem 3.5rem;
 }
 .header__top{
@@ -16,31 +26,27 @@ header{
     padding: 0rem 1rem;
     align-items: center;
 }
-.header__top img {
-    width: 8rem;
-    height: 2.6rem;
-}
-.header__top div{
-    display: flex;
-    align-items: center;
-}
-.header__top div h1{
+.header__top h1{
     color: var(--color-white);
-    padding: 0 1rem;
     font-weight: bold;
+    font-size: 1.2rem;
 }
-.header__botton{
+.header__top img{
+    width: 2rem;
+    height: 2rem;
+}
+.header__bottom{
     width: 100%;
     background-color: var(--color-white);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
 }
-.header__botton .key{
+.header__bottom .key{
     color: var(--color-font-gray);
     font-size: .9rem;
 }
-.header__botton .container div{
+.header__bottom .container div{
     height: 1.2rem;
     padding: 0 1rem;
 }

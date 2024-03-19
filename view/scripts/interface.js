@@ -1,21 +1,22 @@
 //------Header
 const header = document.querySelector('header');
 header.innerHTML = `
-    <div class="header__top">
-        <div>
-            <img src="../img/logoSMS.png" alt="Imagen de muestra">
-            <h1>Demo de presentacion</h1>
-        </div>
-        <img src="../img/menu.svg" class="header__menu">
+    <div class="header__left">
     </div>
-    <div class="header__botton">
-        <div class="container">
-            <div class="key" id="rol">Operador</div>
-            <div class="value" id="userLoggedIn"></div>
+    <div class="header__right">
+        <div class="header__top">
+            <h1>DEMO "SISTEMA DE BOMBAS ALTERNADAS"</h1>
+            <img src="../img/menu.svg" class="header__menu">
         </div>
+        <div class="header__bottom">
             <div class="container">
-            <div class="key">Fecha y hora</div>
-            <div id="showDate"></div>
+                <div class="key" id="rol">Operador</div>
+                <div class="value" id="userLoggedIn"></div>
+            </div>
+            <div class="container">
+                <div class="key">Fecha y hora</div>
+                <div id="showDate"></div>
+            </div>
         </div>
     </div>
 `;

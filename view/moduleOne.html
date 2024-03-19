@@ -37,29 +37,36 @@
                 <h1>Maquina</h1>
                 <!--<h1>Inicio</h1>
                 <h1>Duracion</h1>-->
+                <h1 style="text-align: center;">Imagen</h1>
                 <h1>ON/OFF</h1>
-                <h1>Estado</h1>
+                <h1>Indicador</h1>
             </div>
             <div>
                 <h1>OPE</h1>
                 <!--<h1>--:--:--</h1>
                 <h1>--:--:--</h1>-->
+                <div id="imgOPE" class="indicadores__img"></div>
                 <h1 id="textOPE" class="indicadores__text"></h1>
                 <div><span id="ledOPE" class="indicadores__led"></span></div>
+                
             </div>
             <div>
                 <h1>Bomba uno</h1>
                 <!--<h1>--:--:--</h1>
                 <h1>--:--:--</h1>-->
+                <div id="imgBomba1" class="indicadores__img"></div>
                 <h1 id="textBomba1" class="indicadores__text"></h1>
                 <div><span id="ledBomba1" class="indicadores__led"></span></div>
+                
             </div>
             <div>
                 <h1>Bomba dos</h1>
                 <!--<h1>--:--:--</h1>
                 <h1>--:--:--</h1>-->
+                <div id="imgBomba2" class="indicadores__img"></div>
                 <h1 id="textBomba2" class="indicadores__text"></h1>
                 <div><span id="ledBomba2" class="indicadores__led"></span></div>
+                
             </div>
         </div>
     </main>
@@ -78,11 +85,11 @@
                 <canvas id="chart" class="body__canvas"></canvas>
             </div>
             <div class="chart__footer">
-                <button class="footer__button" onclick="resetZoom()">1:1</button>
-                <button class="footer__button" onclick="backChart()"><img src="../img/undo.svg"></button>
-                <button class="footer__button" onclick="showChart()"><img src="../img/play.svg"></button>
-                <button class="footer__button" onclick="resetZoom()"><img src="../img/pause.svg"></button>
-                <button class="footer__button" onclick="resetZoom()"><img src="../img/search.svg"></button>
+                <button class="footer__button" onclick="resetZoom()" data-tooltip="Inicio">1:1</button>
+                <button class="footer__button" onclick="backChart()" data-tooltip="Atras"><img src="../img/undo.svg" ></button>
+                <button class="footer__button" onclick="showChart()" data-tooltip="Actualizar"><img src="../img/update.svg" ></button>
+                <!--<button class="footer__button" onclick="resetZoom()"><img src="../img/pause.svg"></button>-->
+                <button class="footer__button" onclick="resetZoom()" data-tooltip="Buscar"><img src="../img/search.svg"></button>
                 <!--<select name="" id="">
                     <option value="millisecond">Milisegundos</option>
                     <option value="second">Segundos</option>

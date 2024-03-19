@@ -113,12 +113,20 @@ main div{
 }
 .indicadores__led{
     display: flex;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background-color: var(--color-background-body);
 }
-/*--------------------VENTANA MODAL PROFORMA----------------------------*/
+.indicadores__img{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+#imgBomba1, #imgBomba2{
+    background-image: url(../equipments/pump-rigth.svg);
+}
+/*--------------------VENTANA MODAL ----------------------------*/
 .modal{
 	/*para que salga del flujo y se quede fijo a la pantalla (desaparece)*/
 	position: fixed;
@@ -177,16 +185,44 @@ main div{
     gap: .5rem;
     align-items: center;
     padding: 0 2rem;
+    justify-content: center;
 }
 .footer__button{
     border-radius: .3rem;
     background-color: #b3b5bd;
     background: linear-gradient(#eef0fb, #93949b);
     border: .1rem solid #64646a;
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 2.3rem;
+    height: 2.3rem;
     font-weight: bold;
     cursor: pointer;
+    position: relative;
+}
+.footer__button::before, .footer__button::after{
+    --scale: 0;
+    position: absolute;
+    top: -.25rem;
+    left: 1rem;
+    transform: translateX(-50%) translateY(var(--translate-y), 0) scale(var(--scale));
+    transition: 1000ms transform;
+    transform-origin: bottom center;
+}
+.footer__button::before{
+    --translate-y: 100%   
+    content: attr(data-tooltip);
+    padding: .5rem;
+    width: max-content;
+    background: var(--color-background-head);
+    color: var(--color-white);
+    border-radius: .2rem;
+}
+.footer__button:hover::before, .footer__button:hover::after{
+    --scale: .8;
+}
+.footer__button::after{
+    content: '';
+    border: .7rem solid transparent;
+    border-top-color: var(--color-black);
 }
 .footer__button:hover{
     border: none;

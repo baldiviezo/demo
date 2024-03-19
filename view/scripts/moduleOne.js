@@ -21,19 +21,19 @@ setInterval(() => {
     }).then(response => response.json()).then(data => {
         /*OPE */
         data.ope_var == 1 ? varOPE = 'ON' : varOPE = 'OFF';
-        data.ope_var == 1 ? ledOPE.style.background = 'rgb(94,209,173)' : ledOPE.style.background = 'rgb(222,56,88)';
-        varOPE == 'ON' ? textOPE.setAttribute('style', 'color: rgb(94,209,173)') : textOPE.setAttribute('style', 'color: rgb(222,56,88)')
+        data.ope_var == 1 ? ledOPE.style.background = 'rgb(0,128,0)' : ledOPE.style.background = 'rgb(155,156,157)';
+        varOPE == 'ON' ? textOPE.setAttribute('style', 'color: rgb(0,128,0)') : textOPE.setAttribute('style', 'color: rgb(155,156,157)')
 
         textOPE.innerHTML = varOPE;
         /*Bomba1 */
         data.bomba1_var == 1 ? varBomba1 = 'ON' : varBomba1 = 'OFF';
-        data.bomba1_var == 1 ? ledBomba1.style.background = 'rgb(94,209,173)' : ledBomba1.style.background = 'rgb(222,56,88)';
-        varBomba1 == 'ON' ? textBomba1.setAttribute('style', 'color: rgb(94,209,173)') : textBomba1.setAttribute('style', 'color: rgb(222,56,88)')
+        data.bomba1_var == 1 ? ledBomba1.style.background = 'rgb(0,128,0)' : ledBomba1.style.background = 'rgb(155,156,157)';
+        varBomba1 == 'ON' ? textBomba1.setAttribute('style', 'color: rgb(0,128,0)') : textBomba1.setAttribute('style', 'color: rgb(155,156,157)')
         textBomba1.innerText = varBomba1;
         /*bomba 2 */
         data.bomba2_var == 1 ? varBomba2 = 'ON' : varBomba2 = 'OFF';
-        data.bomba2_var == 1 ? ledBomba2.style.background = 'rgb(94,209,173)' : ledBomba2.style.background = 'rgb(222,56,88)';
-        varBomba2 == 'ON' ? textBomba2.setAttribute('style', 'color: rgb(94,209,173)') : textBomba2.setAttribute('style', 'color: rgb(222,56,88)')
+        data.bomba2_var == 1 ? ledBomba2.style.background = 'rgb(0,128,0)' : ledBomba2.style.background = 'rgb(155,156,157)';
+        varBomba2 == 'ON' ? textBomba2.setAttribute('style', 'color: rgb(0,128,0)') : textBomba2.setAttribute('style', 'color: rgb(155,156,157)')
         textBomba2.innerText = varBomba2;
         /*nivel */
         textBar.innerText = `${data['nivel_var']}%`;
@@ -283,7 +283,6 @@ fetch('../graficas', {
     datosNivel.forEach(element => {
         arrayUndefined.push({ x: new Date(`${element.fecha_nvl.slice(0, 10)}T${element.hora_nvl}`), y: element.valor_nvl })
     });
-
     //Tarda en graficar, No poner myChart.update() aqui
 }).catch(err => console.log(err));
 
