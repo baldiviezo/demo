@@ -1,0 +1,20 @@
+body{
+	display: grid;
+    grid-template-rows: 6.5rem 1fr;
+    background-color: var(--color-background-body);
+}
+main{
+    background-color: var(--color-white);
+    margin: .5rem;
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, max(20rem, 1fr));
+	grid-gap: .5rem;  
+    overflow: auto;
+}
+/*******chart******/
+.container__chart {
+	background: var(--white);
+    width: 50%;
+
+}

@@ -275,16 +275,18 @@ Chart.Tooltip.positioners.top = function (elements, eventPosition) {
     }
 }
 
-
-fetch('../graficas', {
-    method: "POST",
-}).then(response => response.json()).then(data => {
-    datosNivel = data;
-    datosNivel.forEach(element => {
-        arrayUndefined.push({ x: new Date(`${element.fecha_nvl.slice(0, 10)}T${element.hora_nvl}`), y: element.valor_nvl })
-    });
-    //Tarda en graficar, No poner myChart.update() aqui
-}).catch(err => console.log(err));
+function readNivel() {
+    fetch('../graficas', {
+        method: "POST",
+    }).then(response => response.json()).then(data => {
+        datosNivel = data;
+        datosNivel.forEach(element => {
+            arrayUndefined.push({ x: new Date(`${element.fecha_nvl.slice(0, 10)}T${element.hora_nvl}`), y: element.valor_nvl })
+        });
+        showChart();
+        //Tarda en graficar, No poner myChart.update() aqui
+    }).catch(err => console.log(err));
+}
 
 //------show chart
 function showChart() {
@@ -308,4 +310,17 @@ function backChart() {
         myChart.update();
         
     }
+}
+
+
+/**********chage of view***************/
+const viewOne = document.querySelector('main div.viewOne');
+const viewTwo = document.querySelector('main div.viewTwo');
+function showViewOne() {
+    viewTwo.setAttribute('hidden', '');
+    viewOne.removeAttribute('hidden');
+}
+function showViewTwo() {
+    viewOne.setAttribute('hidden', '');
+    viewTwo.removeAttribute('hidden');
 }

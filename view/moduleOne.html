@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Modulo 1</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../view/scripts/loggedIn.js"></script>
-    <link rel="shortcut icon" href="../img/iconoSiemens.ico">
+    <link rel="shortcut icon" href="../img/iconoSMSIC.jpg">
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/interface.css">
     <link rel="stylesheet" href="../css/moduleOne.css">
 </head>
+
 <body>
     <header>
     </header>
@@ -32,41 +34,89 @@
                 </div>
             </div>
         </div>
-        <div class="indicadores">
-            <div class="title">
-                <h1>Maquina</h1>
-                <!--<h1>Inicio</h1>
-                <h1>Duracion</h1>-->
-                <h1 style="text-align: center;">Imagen</h1>
-                <h1>ON/OFF</h1>
-                <h1>Indicador</h1>
+        <!--En Tabla-->
+
+        <!--En Imagen-->
+        <div class="viewTwo">
+            <div class="viewTwo__header">
+                <h1>Visualización</h1>
+                <img src="../img/table.svg" onclick="showViewOne()">
             </div>
-            <div>
-                <h1>OPE</h1>
-                <!--<h1>--:--:--</h1>
-                <h1>--:--:--</h1>-->
-                <div id="imgOPE" class="indicadores__img"></div>
-                <h1 id="textOPE" class="indicadores__text"></h1>
-                <div><span id="ledOPE" class="indicadores__led"></span></div>
+            <div class="monitoreo">
+                <!-------------foco---------------->
+                <span class="foco foco__ope"></span>
+                <!------------imagenes--------------->
+                <div class="txt txt__bomba1">Bomba 1</div>
+                <div class="txt txt__bomba2">Bomba 2</div>
+                <div class="txt txt__tanque">Tanque</div>
+                <div class="txt txt__valvula">Valvula</div>
+                <div class="txt txt__ope">OPE</div>
+                <div class="imagen bomba1"></div>
+                <div class="imagen bomba2"></div>
+                <div class="imagen tanque"></div>
+                <div class="imagen tubo__vertical1"></div>
+                <div class="imagen tubo__vertical2"></div>
+                <div class="imagen tubo__vertical3"></div>
+                <div class="imagen tubo__vertical4"></div>
+                <div class="imagen tubo__horizontal1"></div>
+                <div class="imagen tubo__horizontal2"></div>
+                <div class="imagen codo__ad1"></div>
+                <div class="imagen codo__ad2"></div>
+                <div class="imagen codo__it"></div>
+                <div class="imagen codo__ia"></div>
+                <div class="imagen valvula"></div>
                 
+                <!-------LINEA DE PROGRESO-------->
+                <div class="bar__tanque">
+                    <div class="progreso__tanque"></div>
+                </div>
+                <!------------Valvula------------>
+                <div class="txt texto__bomba1"></div>
+                <div class="txt texto__bomba2"></div>
+                <div class="txt texto__valvula"></div>
             </div>
-            <div>
-                <h1>Bomba uno</h1>
-                <!--<h1>--:--:--</h1>
-                <h1>--:--:--</h1>-->
-                <div id="imgBomba1" class="indicadores__img"></div>
-                <h1 id="textBomba1" class="indicadores__text"></h1>
-                <div><span id="ledBomba1" class="indicadores__led"></span></div>
-                
+        </div>
+        <div class="viewOne" hidden>
+            <div class="viewOne__header">
+                <h1>Visualización</h1>
+                <img src="../img/engage.svg" onclick="showViewTwo()">
             </div>
-            <div>
-                <h1>Bomba dos</h1>
-                <!--<h1>--:--:--</h1>
-                <h1>--:--:--</h1>-->
-                <div id="imgBomba2" class="indicadores__img"></div>
-                <h1 id="textBomba2" class="indicadores__text"></h1>
-                <div><span id="ledBomba2" class="indicadores__led"></span></div>
-                
+            <div class="indicadores">
+                <div class="title">
+                    <h1>Maquina</h1>
+                    <!--<h1>Inicio</h1>
+                    <h1>Duracion</h1>-->
+                    <h1 style="text-align: center;">Imagen</h1>
+                    <h1>ON/OFF</h1>
+                    <h1>Indicador</h1>
+                </div>
+                <div>
+                    <h1>OPE</h1>
+                    <!--<h1>--:--:--</h1>
+                    <h1>--:--:--</h1>-->
+                    <div id="imgOPE" class="indicadores__img"></div>
+                    <h1 id="textOPE" class="indicadores__text"></h1>
+                    <div><span id="ledOPE" class="indicadores__led"></span></div>
+
+                </div>
+                <div>
+                    <h1>Bomba uno</h1>
+                    <!--<h1>--:--:--</h1>
+                    <h1>--:--:--</h1>-->
+                    <div id="imgBomba1" class="indicadores__img"></div>
+                    <h1 id="textBomba1" class="indicadores__text"></h1>
+                    <div><span id="ledBomba1" class="indicadores__led"></span></div>
+
+                </div>
+                <div>
+                    <h1>Bomba dos</h1>
+                    <!--<h1>--:--:--</h1>
+                    <h1>--:--:--</h1>-->
+                    <div id="imgBomba2" class="indicadores__img"></div>
+                    <h1 id="textBomba2" class="indicadores__text"></h1>
+                    <div><span id="ledBomba2" class="indicadores__led"></span></div>
+
+                </div>
             </div>
         </div>
     </main>
@@ -86,10 +136,13 @@
             </div>
             <div class="chart__footer">
                 <button class="footer__button" onclick="resetZoom()" data-tooltip="Inicio">1:1</button>
-                <button class="footer__button" onclick="backChart()" data-tooltip="Atras"><img src="../img/undo.svg" ></button>
-                <button class="footer__button" onclick="showChart()" data-tooltip="Actualizar"><img src="../img/update.svg" ></button>
+                <button class="footer__button" onclick="backChart()" data-tooltip="Atras"><img
+                        src="../img/undo.svg"></button>
+                <button class="footer__button" onclick="readNivel()" data-tooltip="Actualizar"><img
+                        src="../img/update.svg"></button>
                 <!--<button class="footer__button" onclick="resetZoom()"><img src="../img/pause.svg"></button>-->
-                <button class="footer__button" onclick="resetZoom()" data-tooltip="Buscar"><img src="../img/search.svg"></button>
+                <button class="footer__button" onclick="resetZoom()" data-tooltip="Buscar"><img
+                        src="../img/search.svg"></button>
                 <!--<select name="" id="">
                     <option value="millisecond">Milisegundos</option>
                     <option value="second">Segundos</option>
@@ -117,4 +170,5 @@
 <script src="scripts/interface.js"></script>
 <script src="scripts/footer.js"></script>
 <script src="scripts/moduleOne.js"></script>
+
 </html>

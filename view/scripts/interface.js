@@ -1,14 +1,14 @@
 //------Header
 const header = document.querySelector('header');
 header.innerHTML = `
-    <div class="header__left">
-    </div>
-    <div class="header__right">
         <div class="header__top">
             <h1>DEMO "SISTEMA DE BOMBAS ALTERNADAS"</h1>
             <img src="../img/menu.svg" class="header__menu">
         </div>
         <div class="header__bottom">
+            <div class="logo">
+                <img src="../img/logoSMS.png">
+            </div>
             <div class="container">
                 <div class="key" id="rol">Operador</div>
                 <div class="value" id="userLoggedIn"></div>
@@ -18,7 +18,6 @@ header.innerHTML = `
                 <div id="showDate"></div>
             </div>
         </div>
-    </div>
 `;
 //------Datos del usuario que se mostraran en header
 const rol = document.querySelector('#rol');
