@@ -14,17 +14,16 @@ main div{
     background-color: var(--color-white);
 }
 /**************Nivel*******************/
-.nivel{
-    height: 100%;
-    display: grid;
-    grid-template-rows: 3rem 1fr;
-}
 .nivel__top{
+    height: 3rem;
     display: flex;
     align-items: center;
     padding: 0 1rem;
     justify-content: space-between;
     border-bottom: 1px solid var(--color-background-body);
+}
+.nivel__top h1{
+    font-weight: bold;
 }
 .nivel__top img{
     height: 2rem;
@@ -75,7 +74,6 @@ main div{
     left: .25rem;
     height: 1rem;
     width: 1rem;
-    
     background: linear-gradient(45deg, #d3d3d3 60%, #64646a 40%);
     transform: translateX(-50%) rotate(45deg);
 }
@@ -100,8 +98,105 @@ main div{
     color: #00a1d1;
     font-weight: bold;
 }
-/*********view***************/
+/********nivelH***************/
+.nivelH__top{
+    height: 50%;
+}
+.nivelH__head{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: start;
+    border-bottom: 1px solid var(--color-background-body);
+}
+.nivelH__top img{
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+.nivelH__top h1{
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+.nivelH__body div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 3rem;
+    border-bottom: 1px solid var(--color-background-body);
+    align-items: center;
+    padding: 0 1rem;
+}
+.nivelH__bottom{
+    height: 50%;
+}
 
+/***********Bar H*************/
+.container__barH{
+    margin: 0 auto;
+    background-color: #d3d3d3;
+    width: 16.1rem;
+    height: 4.6rem;
+    padding: .3rem;
+    border-radius: .3rem;
+    display: flex;
+}
+.barH__botton{
+    width: 2rem;
+    height: 4rem;
+    background-color: #00a1d1;
+    border-bottom-left-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+}
+.barH{
+    /*background: linear-gradient( to top, #00a1d1  8.3%, #64646a 91.7%);*/
+    background-color: #64646a;
+    width: 100%;
+    height: 4rem;
+    border-top-right-radius: .3rem;
+    border-top-left-radius: .3rem;
+    display: flex;
+    align-items: end; 
+}
+.line__barH{
+    width: 50%;
+    height: 100%; /*Variable*/
+    background-color: #00a1d1;
+    position: relative;
+}
+.indicador__barH span:before{
+    content: '';
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    top: -.25rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #d3d3d3 60%, #64646a 40%);
+    transform: translateX(-50%) rotate(45deg);
+}
+.indicador__barH{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    padding: .3rem;
+    position: absolute;
+    bottom: -4.5rem;
+    left: 1.5rem;
+}
+.indicador__barH span{
+    display: flex;
+    background-color: #64646a;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color: #00a1d1;
+    font-weight: bold;
+}
+/*********view***************/
 .viewOne__header{
     display: flex;
     justify-content: space-between;
@@ -120,7 +215,7 @@ main div{
 }
 .indicadores div{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     height: 3rem;
     border-bottom: 1px solid var(--color-background-body);
     align-items: center;
@@ -129,12 +224,47 @@ main div{
 .indicadores__text{
     font-weight: bold;
 }
+.button__on{
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgb(0,128,0);
+    border-color: #111111bd;
+    border-style: solid;
+    border-width: .2rem;
+    cursor: pointer;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.button__on:active{
+    border-color: #fff;
+}
+.button__off{
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #c20000;
+    border-color: #111111bd;
+    border-style: solid;
+    border-width: .2rem;
+    cursor: pointer;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.button__off:active{
+    border-color: #fff;
+}
 .indicadores__led{
     display: flex;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.9rem;
+    height: 1.9rem;
     border-radius: 50%;
     background-color: var(--color-background-body);
+    box-shadow: 0rem 0rem .5rem .2rem var(--color-background-body);
 }
 .indicadores__img{
     background-repeat: no-repeat;
@@ -163,6 +293,12 @@ main div{
     cursor: pointer;
 }
 /*************************Monitoreo**************************/
+.viewTwo{
+    overflow: auto;
+}
+.monitoreo{
+    position: relative;
+}
 .imagen{
     position: absolute;
     background-repeat: no-repeat;
@@ -173,111 +309,111 @@ main div{
     background-image: url(../equipments/pump-rigth.svg);
     width: 16rem;
     height: 7.5rem;
-    top: 34rem;
-    left: 23rem;
+    top: 24rem;
+    left: 3rem;
 }
 .bomba2{
     background-image: url(../equipments/pump-rigth.svg);
     width: 16rem;
     height: 7.5rem;
-    top: 34rem;
-    left: 42rem;
+    top: 24rem;
+    left: 22rem;
 }
 .tanque{
     background-image: url(../equipments/tank-4paws.svg);
     width: 30rem;
     height: 25rem;
-    top: 16.5rem;
-    left: 70rem;
+    top: 6.5rem;
+    left: 50rem;
 }
 .valvula{
     background-image: url(../equipments/valve.svg);
     width: 3.2rem;
     height: 4rem;
-    top: 10.4rem;
-    left: 66rem;
+    top: .4rem;
+    left: 46rem;
 }
 .txt{
     
     position: absolute;
 }
 .txt__bomba1{
-    top: 42rem;
-    left: 27rem;
+    top: 32rem;
+    left: 7rem;
 }
 .txt__bomba2{
-    top: 42rem;
-    left: 46rem;
+    top: 32rem;
+    left: 26rem;
 }
 .txt__tanque{
-    top: 42rem;
-    left: 81rem;
+    top: 32rem;
+    left: 61rem;
 }
 .txt__valvula{
-    top: 15rem;
-    left: 66rem;
+    top: 5rem;
+    left: 46rem;
 }
 .txt__ope{
-    top: 16rem;
-    left: 23.5rem;
+    top: 6rem;
+    left: 3.5rem;
 }
 .tubo__vertical1{
     background-color: #afafb1;
     width: 1.6rem;
     height: 3rem;
-    top: 31.2rem;
-    left: 35.5rem;
+    top: 21.2rem;
+    left: 15.5rem;
 }
 .tubo__vertical2{
     background-color: #afafb1;
     width: 1.6rem;
     height: 3rem;
-    top: 31.2rem;
-    left: 54.5rem;
+    top: 21.2rem;
+    left: 34.5rem;
 }
 .tubo__vertical3{
     background-color: #afafb1;
     width: 1.6rem;
     height: 16rem;
-    top: 14rem;
-    left: 59rem;
+    top: 4rem;
+    left: 39rem;
 }
 .tubo__vertical4{
     background-color: #afafb1;
     width: 1.6rem;
     height: 4.5rem;
-    top: 14rem;
-    left: 75.6rem;
+    top: 4rem;
+    left: 55.6rem;
 }
 .codo__ad1{
     background-color: #afafb1;
     border-top-left-radius: 100%;
     width: 1.6rem;
     height: 1.6rem;
-    top: 29.8rem;
-    left: 35.5rem;
+    top: 19.8rem;
+    left: 15.5rem;
 }
 .codo__ad2{
     background-color: #afafb1;
     border-top-left-radius: 100%;
     width: 1.6rem;
     height: 1.6rem;
-    top: 12.4rem;
-    left: 59rem;
+    top: 2.4rem;
+    left: 39rem;
 }
 .tubo__horizontal1{
     background-color: #afafb1;
     width: 22rem;
     height: 1.6rem;
-    top: 29.8rem;
-    left: 37.1rem;
+    top: 19.8rem;
+    left: 17.1rem;
 }
 .tubo__horizontal2{
     background-color: #afafb1;
     width: 15rem;
     height: 1.6rem;
-    top: 12.4rem;
-    left: 60.6rem;
+    top: 2.4rem;
+    left: 40.6rem;
 }
 
 .codo__it{
@@ -285,16 +421,16 @@ main div{
     border-bottom-right-radius: 100%;
     width: 1.6rem;
     height: 1.6rem;
-    top: 29.8rem;
-    left: 59rem;
+    top: 19.8rem;
+    left: 39rem;
 }
 .codo__ia{
     background-color: #afafb1;
     border-top-right-radius: 100%;
     width: 1.6rem;
     height: 1.6rem;
-    top: 12.4rem;
-    left: 75.6rem;
+    top: 2.4rem;
+    left: 55.6rem;
 }
 /*********LINEA DE PROGRESO*******************/
 .bar__tanque{
@@ -302,8 +438,8 @@ main div{
     height: 11.5rem;
     background-color: #fff;
     position: absolute;
-    top: 19rem;
-    left: 73rem;
+    top: 9rem;
+    left: 53rem;
     /*border-radius: 30px;*/
     display: flex;
     flex-direction: column;
@@ -317,21 +453,21 @@ main div{
 /***************ON/OFF************/
 .texto__bomba1{
     top: 32rem;
-    left: 28rem;
+    left: 8rem;
 }
 .texto__bomba2{
-    top: 32rem;
-    left: 48rem;
+    top: 22rem;
+    left: 28rem;
 }
 .texto__valvula{
     top: 9.5rem;
-    left: 62rem;
+    left: 42rem;
 }
 /******FOCO********/
 .foco__ope{
     position: absolute;
-    top: 12rem;
-    left: 22.5rem;
+    top: 2rem;
+    left: 2.5rem;
     background-color: rgb(155,156,157);
     width: 4rem;
     height: 4rem;
@@ -433,4 +569,13 @@ main div{
 }
 .footer__button:hover{
     border: none;
+}
+@media (max-width:800px) {
+    main {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 35rem 1fr;
+        gap: .5rem;
+    }
 }

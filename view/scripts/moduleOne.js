@@ -4,13 +4,15 @@ buttom__moduleOne.classList.add('active');
 //------Solicitud de variables del servidor 
 const lineBar = document.querySelector('#lineBar');
 const textBar = document.querySelector('#textBar');
+const lineBarH = document.querySelector('#lineBarH');
+const textBarH = document.querySelector('#textBarH');
 /*text indicadores */
 const textvalvula = document.querySelector('#textOPE');
-let varOPE = 'OFF';
+//let varOPE = 'OFF';
 const textBomba1 = document.querySelector('#textBomba1');
-let varBomba1 = 'OFF';
+//let varBomba1 = 'OFF';
 const textBomba2 = document.querySelector('#textBomba2');
-let varBomba2 = 'OFF';
+//let varBomba2 = 'OFF';
 /*led indicadores */
 const ledOPE = document.querySelector('#ledOPE');
 const ledBomba1 = document.querySelector('#ledBomba1');
@@ -20,32 +22,91 @@ setInterval(() => {
         method: "POST"
     }).then(response => response.json()).then(data => {
         /*OPE */
-        data.ope_var == 1 ? varOPE = 'ON' : varOPE = 'OFF';
-        data.ope_var == 1 ? ledOPE.style.background = 'rgb(0,128,0)' : ledOPE.style.background = 'rgb(155,156,157)';
-        varOPE == 'ON' ? textOPE.setAttribute('style', 'color: rgb(0,128,0)') : textOPE.setAttribute('style', 'color: rgb(155,156,157)')
-
-        textOPE.innerHTML = varOPE;
+        //data.ope_var == 1 ? varOPE = 'ON' : varOPE = 'OFF';
+        data.ope_var == 1 ? ledOPE.style.background = 'rgb(0,128,0)' : ledOPE.style.background = 'rgb(155,156,157)'; //Color
+        data.ope_var == 1 ? ledOPE.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledOPE.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
+        //varOPE == 'ON' ? textOPE.setAttribute('style', 'color: rgb(0,128,0)') : textOPE.setAttribute('style', 'color: rgb(155,156,157)')
+        //textOPE.innerHTML = varOPE;
         /*Bomba1 */
-        data.bomba1_var == 1 ? varBomba1 = 'ON' : varBomba1 = 'OFF';
+        //data.bomba1_var == 1 ? varBomba1 = 'ON' : varBomba1 = 'OFF';
         data.bomba1_var == 1 ? ledBomba1.style.background = 'rgb(0,128,0)' : ledBomba1.style.background = 'rgb(155,156,157)';
-        varBomba1 == 'ON' ? textBomba1.setAttribute('style', 'color: rgb(0,128,0)') : textBomba1.setAttribute('style', 'color: rgb(155,156,157)')
-        textBomba1.innerText = varBomba1;
+        data.bomba1_var == 1 ? ledBomba1.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledBomba1.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
+        //varBomba1 == 'ON' ? textBomba1.setAttribute('style', 'color: rgb(0,128,0)') : textBomba1.setAttribute('style', 'color: rgb(155,156,157)')
+        //textBomba1.innerText = varBomba1;
         /*bomba 2 */
-        data.bomba2_var == 1 ? varBomba2 = 'ON' : varBomba2 = 'OFF';
+        //data.bomba2_var == 1 ? varBomba2 = 'ON' : varBomba2 = 'OFF';
         data.bomba2_var == 1 ? ledBomba2.style.background = 'rgb(0,128,0)' : ledBomba2.style.background = 'rgb(155,156,157)';
-        varBomba2 == 'ON' ? textBomba2.setAttribute('style', 'color: rgb(0,128,0)') : textBomba2.setAttribute('style', 'color: rgb(155,156,157)')
-        textBomba2.innerText = varBomba2;
+        data.bomba2_var == 1 ? ledBomba2.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledBomba2.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
+        //varBomba2 == 'ON' ? textBomba2.setAttribute('style', 'color: rgb(0,128,0)') : textBomba2.setAttribute('style', 'color: rgb(155,156,157)')
+        //textBomba2.innerText = varBomba2;
         /*nivel */
         textBar.innerText = `${data['nivel_var']}%`;
         lineBar.style.height = `${data['nivel_var']}%`;
+        /*nivel Horizontal*/
+        textBarH.innerText = `${data['nivel_var']}%`;
+        lineBarH.style.width = `${data['nivel_var']}%`;
     }).catch(err => console.log(err));
 }, 1000);
+
+/********************************************BUTTOM ON AND OFF OPE BOMBA 1 BOMBA 2  *******************************/
+const onButtomOPE = document.getElementById('onButtomOPE');
+const offButtomOPE = document.getElementById('offButtomOPE');
+
+const onButtomBomba1 = document.getElementById('onButtomBomba1');
+const offButtomBomba1 = document.getElementById('offButtomBomba1');
+
+const onButtomBomba2 = document.getElementById('onButtomBomba2');
+const offButtomBomba2 = document.getElementById('offButtomBomba2');
+
+onButtomOPE.addEventListener('click',()=>{
+    fetch('../buttomOPE', {
+        method: "POST",
+        body: 1
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+offButtomOPE.addEventListener('click',()=>{
+    fetch('../buttomOPE', {
+        method: "POST",
+        body: 0
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+onButtomBomba1.addEventListener('click',()=>{
+    fetch('../buttomBomba1', {
+        method: "POST",
+        body: 1
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+offButtomBomba1.addEventListener('click',()=>{
+    fetch('../buttomBomba1', {
+        method: "POST",
+        body: 0
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+onButtomBomba2.addEventListener('click',()=>{
+    fetch('../buttomBomba2', {
+        method: "POST",
+        body: 1
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+offButtomBomba2.addEventListener('click',()=>{
+    fetch('../buttomBomba2', {
+        method: "POST",
+        body: 0
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+
 
 
 /*************************************************Ventana modal chart**************************************************/
 //------Ventana modal chart
 const chartNivelMW = document.querySelector('#chartNivelMW');
-const pencilNivel = document.querySelector('.nivel__top img');
+const pencilNivel = document.querySelector('#pencil');
 pencilNivel.addEventListener('click', chartNivel);
 function chartNivel() {
     chartNivelMW.classList.add('modal__show');
@@ -316,11 +377,28 @@ function backChart() {
 /**********chage of view***************/
 const viewOne = document.querySelector('main div.viewOne');
 const viewTwo = document.querySelector('main div.viewTwo');
+const nivelVertical = document.querySelector('main div.nivelVertical');
+const nivelHorizontal = document.querySelector('main div.nivelHorizontal');
+
 function showViewOne() {
+    //nivelHorizontal.setAttribute('hidden', '');
+    //nivelVertical.removeAttribute('hidden');
     viewTwo.setAttribute('hidden', '');
     viewOne.removeAttribute('hidden');
 }
 function showViewTwo() {
+    //nivelHorizontal.setAttribute('hidden', '');
+    //nivelVertical.removeAttribute('hidden');
     viewOne.setAttribute('hidden', '');
     viewTwo.removeAttribute('hidden');
+}
+function showNV() {
+    nivelHorizontal.setAttribute('hidden', '');
+    nivelVertical.removeAttribute('hidden');
+}
+function showNH() {
+    //nivelHorizontal.setAttribute('hidden', '');
+    //nivelVertical.removeAttribute('hidden');
+    nivelVertical.setAttribute('hidden', '');
+    nivelHorizontal.removeAttribute('hidden');
 }

@@ -16,10 +16,11 @@
     <header>
     </header>
     <main>
-        <div class="nivel">
+        <div class="nivelVertical" >
             <div class="nivel__top">
-                <h1>Nivel del tanque</h1>
-                <img src="../img/edit.svg">
+                <img src="../img/clock.svg" onclick="showNH()">
+                <h1>Datos de sistema</h1>
+                <img id="pencil" src="../img/edit.svg">
             </div>
             <div class="nivel__body">
                 <div class="container__bar">
@@ -34,10 +35,47 @@
                 </div>
             </div>
         </div>
+        <div class="nivelHorizontal" onclick="showNV()" hidden> 
+            <div class="nivelH__top">
+                <div class="nivelH__head">
+                    <img src="../img/filter.svg">
+                    <h1>Tiempo de encendido de bombas</h1>
+                </div>
+                <div class="nivelH__body">
+                    <div>
+                        <h2>Equipo</h2>
+                        <h2>Tiempo</h2>
+                    </div>
+                    <div>
+                        <h2>Bomba 1</h2>
+                        <h2>--:--:--</h2>
+                    </div>
+                    <div>
+                        <h2>Bomba 2</h2>
+                        <h2>--:--:--</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="nivelH__bottom">
+                <div class="nivelH__head">
+                    <h1>Nivel</h1>
+                </div>
+                <div class="nivel__body">
+                    <div class="container__barH">
+                        <div class="barH">
+                            <div class="line__barH" id="lineBarH">
+                                <div class="indicador__barH">
+                                    <span id="textBarH">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--En Tabla-->
-
         <!--En Imagen-->
-        <div class="viewTwo">
+        <div class="viewTwo" hidden>
             <div class="viewTwo__header">
                 <h1>Visualización</h1>
                 <img src="../img/table.svg" onclick="showViewOne()">
@@ -76,49 +114,51 @@
                 <div class="txt texto__valvula"></div>
             </div>
         </div>
-        <div class="viewOne" hidden>
+        <div class="viewOne">
             <div class="viewOne__header">
                 <h1>Visualización</h1>
                 <img src="../img/engage.svg" onclick="showViewTwo()">
             </div>
             <div class="indicadores">
                 <div class="title">
-                    <h1>Maquina</h1>
-                    <!--<h1>Inicio</h1>
-                    <h1>Duracion</h1>-->
-                    <h1 style="text-align: center;">Imagen</h1>
-                    <h1>ON/OFF</h1>
-                    <h1>Indicador</h1>
+                    <h1>Equipo</h1>
+                    <h1 style="text-align: right;">Operacion</h1>
+                    <h1></h1>
+                    <h1>Estado</h1>
                 </div>
                 <div>
-                    <h1>OPE</h1>
-                    <!--<h1>--:--:--</h1>
-                    <h1>--:--:--</h1>-->
-                    <div id="imgOPE" class="indicadores__img"></div>
-                    <h1 id="textOPE" class="indicadores__text"></h1>
+                    <h1>Modo</h1>
+                    <div><span id="onButtomOPE" class="button__on">M</span></div>
+                    <div><span id="offButtomOPE" class="button__off">A</span></div>
                     <div><span id="ledOPE" class="indicadores__led"></span></div>
-
                 </div>
                 <div>
-                    <h1>Bomba uno</h1>
-                    <!--<h1>--:--:--</h1>
-                    <h1>--:--:--</h1>-->
-                    <div id="imgBomba1" class="indicadores__img"></div>
-                    <h1 id="textBomba1" class="indicadores__text"></h1>
+                    <h1>Operacion automatica</h1>
+                    <div><span id="onButtomOPE" class="button__on">ON</span></div>
+                    <div><span id="offButtomOPE" class="button__off">OFF</span></div>
+                    <div><span id="ledOPE" class="indicadores__led"></span></div>
+                </div>
+                <div>
+                    <h1>Bomba 1 manual</h1>
+                    <div><span id="onButtomBomba1" class="button__on">ON</span></div>
+                    <div><span id="offButtomBomba1" class="button__off">OFF</span></div>
                     <div><span id="ledBomba1" class="indicadores__led"></span></div>
-
                 </div>
                 <div>
-                    <h1>Bomba dos</h1>
-                    <!--<h1>--:--:--</h1>
-                    <h1>--:--:--</h1>-->
-                    <div id="imgBomba2" class="indicadores__img"></div>
-                    <h1 id="textBomba2" class="indicadores__text"></h1>
+                    <h1>Bomba 2 manual</h1>
+                    <div><span id="onButtomBomba2" class="button__on">ON</span></div>
+                    <div><span id="offButtomBomba2" class="button__off">OFF</span></div>
                     <div><span id="ledBomba2" class="indicadores__led"></span></div>
-
+                </div>
+                <div>
+                    <h1>Valvula manual</h1>
+                    <div><span id="onButtomBomba2" class="button__on">ON</span></div>
+                    <div><span id="offButtomBomba2" class="button__off">OFF</span></div>
+                    <div><span id="ledBomba2" class="indicadores__led"></span></div>
                 </div>
             </div>
         </div>
+        
     </main>
     <footer>
     </footer>
