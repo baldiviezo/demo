@@ -14,37 +14,38 @@ const textBomba1 = document.querySelector('#textBomba1');
 const textBomba2 = document.querySelector('#textBomba2');
 //let varBomba2 = 'OFF';
 /*led indicadores */
+const ledModo = document.querySelector('#ledModo');
 const ledOPE = document.querySelector('#ledOPE');
 const ledBomba1 = document.querySelector('#ledBomba1');
 const ledBomba2 = document.querySelector('#ledBomba2');
+const ledValvula = document.querySelector('#ledValvula');
+
+const timeBomba1 = document.querySelector('#timeBomba1');
+const timeBomba2 = document.querySelector('#timeBomba2');
 setInterval(() => {
     fetch('../variables', {
         method: "POST"
     }).then(response => response.json()).then(data => {
+        /*Modo */
+        data.modo_var == 1 ? ledModo.setAttribute('style', 'background-color: rgb(0,128,0); box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledModo.setAttribute('style', 'background-color: rgb(155,156,157); box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
         /*OPE */
-        //data.ope_var == 1 ? varOPE = 'ON' : varOPE = 'OFF';
-        data.ope_var == 1 ? ledOPE.style.background = 'rgb(0,128,0)' : ledOPE.style.background = 'rgb(155,156,157)'; //Color
-        data.ope_var == 1 ? ledOPE.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledOPE.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
-        //varOPE == 'ON' ? textOPE.setAttribute('style', 'color: rgb(0,128,0)') : textOPE.setAttribute('style', 'color: rgb(155,156,157)')
-        //textOPE.innerHTML = varOPE;
+        data.ope_var == 1 ? ledOPE.setAttribute('style', 'background-color: rgb(0,128,0); box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledOPE.setAttribute('style', 'background-color: rgb(155,156,157); box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
         /*Bomba1 */
-        //data.bomba1_var == 1 ? varBomba1 = 'ON' : varBomba1 = 'OFF';
-        data.bomba1_var == 1 ? ledBomba1.style.background = 'rgb(0,128,0)' : ledBomba1.style.background = 'rgb(155,156,157)';
-        data.bomba1_var == 1 ? ledBomba1.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledBomba1.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
-        //varBomba1 == 'ON' ? textBomba1.setAttribute('style', 'color: rgb(0,128,0)') : textBomba1.setAttribute('style', 'color: rgb(155,156,157)')
-        //textBomba1.innerText = varBomba1;
+        data.bomba1_var == 1 ? ledBomba1.setAttribute('style', 'background-color: rgb(0,128,0); box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledBomba1.setAttribute('style', 'background-color: rgb(155,156,157); box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
         /*bomba 2 */
-        //data.bomba2_var == 1 ? varBomba2 = 'ON' : varBomba2 = 'OFF';
-        data.bomba2_var == 1 ? ledBomba2.style.background = 'rgb(0,128,0)' : ledBomba2.style.background = 'rgb(155,156,157)';
-        data.bomba2_var == 1 ? ledBomba2.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledBomba2.setAttribute('style', 'box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
-        //varBomba2 == 'ON' ? textBomba2.setAttribute('style', 'color: rgb(0,128,0)') : textBomba2.setAttribute('style', 'color: rgb(155,156,157)')
-        //textBomba2.innerText = varBomba2;
+        data.bomba2_var == 1 ? ledBomba2.setAttribute('style', 'background-color: rgb(0,128,0); box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledBomba2.setAttribute('style', 'background-color: rgb(155,156,157); box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
+        /*valvula */
+        data.valvula_var == 1 ? ledValvula.setAttribute('style', 'background-color: rgb(0,128,0); box-shadow: 0rem 0rem .5rem .2rem rgb(0,128,0)') : ledValvula.setAttribute('style', 'background-color: rgb(155,156,157); box-shadow: 0rem 0rem .5rem .2rem rgb(155,155,157)');
+
         /*nivel */
         textBar.innerText = `${data['nivel_var']}%`;
         lineBar.style.height = `${data['nivel_var']}%`;
         /*nivel Horizontal*/
         textBarH.innerText = `${data['nivel_var']}%`;
         lineBarH.style.width = `${data['nivel_var']}%`;
+        /* tiempo*/
+        timeBomba1.innerHTML = `${data['hrb1_var']}:${data['minb1_var']}`;
+        timeBomba2.innerHTML = `${data['hrb2_var']}:${data['minb2_var']}`;
     }).catch(err => console.log(err));
 }, 1000);
 
