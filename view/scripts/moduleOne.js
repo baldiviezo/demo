@@ -48,7 +48,10 @@ setInterval(() => {
     }).catch(err => console.log(err));
 }, 1000);
 
-/********************************************BUTTOM ON AND OFF OPE BOMBA 1 BOMBA 2  *******************************/
+/********************************************BUTTOM ON AND OFF Modo OPE BOMBA 1 BOMBA 2  valvula*******************************/
+const onButtomModo = document.getElementById('onButtomModo');
+const offButtomModo = document.getElementById('offButtomModo');
+
 const onButtomOPE = document.getElementById('onButtomOPE');
 const offButtomOPE = document.getElementById('offButtomOPE');
 
@@ -58,6 +61,23 @@ const offButtomBomba1 = document.getElementById('offButtomBomba1');
 const onButtomBomba2 = document.getElementById('onButtomBomba2');
 const offButtomBomba2 = document.getElementById('offButtomBomba2');
 
+const onButtomValvula = document.getElementById('onButtomValvula');
+const offButtomValvula = document.getElementById('offButtomValvula');
+
+onButtomModo.addEventListener('click',()=>{
+    fetch('../buttomModo', {
+        method: "POST",
+        body: 1
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+offButtomModo.addEventListener('click',()=>{
+    fetch('../buttomModo', {
+        method: "POST",
+        body: 0
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
 onButtomOPE.addEventListener('click',()=>{
     fetch('../buttomOPE', {
         method: "POST",
@@ -95,6 +115,20 @@ onButtomBomba2.addEventListener('click',()=>{
 })
 offButtomBomba2.addEventListener('click',()=>{
     fetch('../buttomBomba2', {
+        method: "POST",
+        body: 0
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+onButtomValvula.addEventListener('click',()=>{
+    fetch('../buttomValvula', {
+        method: "POST",
+        body: 1
+    }).then(response => response.text()).then(data => {
+    }).catch(err => console.log(err));
+})
+offButtomValvula.addEventListener('click',()=>{
+    fetch('../buttomValvula', {
         method: "POST",
         body: 0
     }).then(response => response.text()).then(data => {
